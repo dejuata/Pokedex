@@ -1,14 +1,38 @@
-h1
-{
+body{
+	font-family: 'Lato', sans-serif;	
+}
+h1{
+	text-align: center;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 3em;
+	margin-bottom: 0em;
+}
+#marco{
+	margin-left: 5em;
+	margin-right: 5em;	 
+	display: block;
 	text-align: center;
 }
-
-#marco
-{
-	text-align: center;
-}
-
-.pokemon
-{
+.pokemon{
+	padding: 1em;
+	margin-left: 3em;
+	margin-top: 3em;
 	display: inline-block;
+	background-color: #F2F2F2;
+	box-shadow:0 0 20px -10px #000;	
+}
+.planta{
+	background-color: #9BCC50;
+	padding: 5px;
+	border-radius: 3px;		
+}
+.fuego{
+	background-color: #F54A15;
+	padding: 5px;
+	border-radius: 3px;	
+}
+.agua{
+	background-color: #6CE1FF;
+	padding: 5px;
+	border-radius: 3px;	
 }
