@@ -55,21 +55,17 @@ function cargarPokemon()
 
 		if(listado[i].tipo == 'Planta')
 		{
-			p2.setAttribute('class','planta');
+			p2.classList.add('planta','tipo')
+
 		}
 		else if(listado[i].tipo == 'Fuego')
 		{
-			p2.setAttribute('class','fuego');
+			p2.classList.add('fuego','tipo')
 		}
 		else if(listado[i].tipo == 'Agua')
 		{
-			p2.setAttribute('class','agua');
+			p2.classList.add('agua','tipo')
 		}
-
-
-
-
-		
 
 		div.appendChild(di);
 		di.appendChild(h2);
@@ -78,8 +74,6 @@ function cargarPokemon()
 		di.appendChild(p1);
 		di.appendChild(p2);
 		}
-		
-		
 	}
 
 
