@@ -1,4 +1,3 @@
-import { Pokemon } from '@pokemon/interfaces/pokemon.interface';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -8,8 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PokemonCardComponent implements OnInit {
 
-  @Input()
-  pokemon: Pokemon;
+  @Input() pokemon;
 
   constructor() { }
 

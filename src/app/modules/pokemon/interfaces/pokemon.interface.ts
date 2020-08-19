@@ -1,4 +1,4 @@
-export interface Pokemon{
+export interface PokemonResults{
   name: string,
   url: string
 }

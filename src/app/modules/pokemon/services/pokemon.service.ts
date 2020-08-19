@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 // rxjs
-import { flatMap, map } from 'rxjs/operators';
-import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 // own import
-import { Pokemon, PokemonDetails } from '@pokemon/interfaces/pokemon.interface';
-import { PokemonListDescriptor } from '@pokemon/type/pokemon-list.type';
+import { PokemonListDescriptor, PokemonDetailsDescriptor } from '@pokemon/type/pokemon-list.type';
 import { environment } from '@environments/environment';
 
 @Injectable({
@@ -19,41 +18,23 @@ export class PokemonService {
     private http: HttpClient
   ) { }
 
-  getListPokemon() {
-    return this.http.get<any>(`${environment.baseUrlAPI}`)
+  getListPokemon(): Observable<PokemonListDescriptor> {
+    return this.http.get<PokemonListDescriptor>(`${environment.baseUrlAPI}`)
       .pipe(
-        flatMap(data => {
-          let results = []
-          let next = of(data.next)
-          results.push(next)
-          this.getDataPokemon(data.results).map(ele => {
-            results.push(ele)
-          })
-          return results
+        map(data => {
+          return PokemonListDescriptor.import(data)
         })
       )
   }
 
-  // Obtiene los detalles del Pokemon
-  getDetailsPokemon(endpoint: string): Observable<PokemonDetails> {
-    return this.http.get<PokemonDetails>(endpoint)
+  getDetailsPokemon(endpoint: string): Observable<PokemonDetailsDescriptor>  {
+    return this.http.get<PokemonDetailsDescriptor>(endpoint)
+      .pipe(
+        map(data => {
+          return PokemonDetailsDescriptor.import(data)
+        })
+      )
   }
 
-  // La api me responde con una endpoint para obtener detalles del pokemon
-  // recorro el array de results realizando un nuevo get para obtener info extra.
-  // Esto retorna un array de Observables :
-  getDataPokemon(results: Array<Pokemon>): Observable<PokemonListDescriptor>[] {
-    let arr: Observable<PokemonListDescriptor>[] = [];
-    for (let i = 0; i < results.length; i++) {
-      arr.push(
-        this.getDetailsPokemon(results[i].url)
-          .pipe(
-            map(pokemon => {
-              return PokemonListDescriptor.import(pokemon);
-            })
-          )
-      )
-    }
-    return arr;
-  }
+
 }
