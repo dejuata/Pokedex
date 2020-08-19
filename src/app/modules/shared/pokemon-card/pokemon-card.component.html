@@ -1,3 +1,49 @@
 <div class="card">
-  {{pokemon | json}}
+  <h2>{{pokemon?.name | titlecase}}</h2>
+  <div class="card-image">
+    <img src="{{pokemon?.image}}" alt="{{pokemon?.name}}">
+  </div>
+
+
+  <div class="card-container">
+    <ng-template ngFor let-stat [ngForOf]="pokemon?.stats">
+      <ng-template [ngIf]="stat.key == 'hp'">
+        <div class="card-stat">
+          <img src="assets/img/hp.png" alt="health" class="card-icon">
+          <p>{{stat.value}}</p>
+        </div>
+      </ng-template>
+
+      <ng-template [ngIf]="stat.key == 'attack'">
+        <div class="card-stat">
+          <img src="assets/img/attack.png" alt="attack" class="card-icon card-icon--attack">
+          <p>{{stat.value}}</p>
+        </div>
+      </ng-template>
+    </ng-template>
+  </div>
+
+  <div class="card-container">
+    <ng-template ngFor let-stat [ngForOf]="pokemon?.stats">
+      <ng-template [ngIf]="stat.key == 'defense'">
+        <div class="card-stat">
+          <img src="assets/img/defense.png" alt="defense" class="card-icon">
+          <p>{{stat.value}}</p>
+        </div>
+      </ng-template>
+
+      <ng-template [ngIf]="stat.key == 'speed'">
+        <div class="card-stat">
+          <img src="assets/img/speed.png" alt="speed" class="card-icon">
+          <p>{{stat.value}}</p>
+        </div>
+      </ng-template>
+    </ng-template>
+  </div>
+
+  <div>
+    <ng-template ngFor let-type [ngForOf]="pokemon?.types">
+      <p class="card-type" [class]="type">{{type | titlecase}}</p>
+    </ng-template>
+  </div>
 </div>

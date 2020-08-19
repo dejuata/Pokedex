@@ -18,6 +18,8 @@ export class PokemonDetailsDescriptor {
   public id: number;
   public name: string;
   public stats: any[] = [];
+  public types: any[] = [];
+  public image: string;
 
 
   public static import(rawData: any) {
@@ -26,6 +28,11 @@ export class PokemonDetailsDescriptor {
 
     pokemon.id = rawData.id;
     pokemon.name = rawData.name;
+    pokemon.image = `https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`;
+
+    for(let i = 0; i < rawData.types.length; i++) {
+      pokemon.types.push(rawData.types[i].type.name);
+    }
 
     for(let i = 0; i < rawData.stats.length; i++) {
       if (stats.includes(rawData.stats[i].stat.name)) {

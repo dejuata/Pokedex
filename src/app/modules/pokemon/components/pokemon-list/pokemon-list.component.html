@@ -1,5 +1,6 @@
 <div class="container">
-  <div *ngFor="let pokemon of response.results">
-    <p>{{pokemon.name}}</p><br>
+  <div *ngFor="let pokemon of pokemons">
+    <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
   </div>
 </div>
+

@@ -26,10 +26,12 @@ export class PokemonListComponent implements OnInit {
     this.pokemonService.getListPokemon()
       .subscribe(data => {
         this.response = data;
-        console.log('res', this.response)
-        /*for (let i = 0; i < this.response.results.length; i++) {
+        for (let i = 0; i < this.response.results.length; i++) {
           this.getDetailsPokemons(this.response.results[i].url)
-        }*/
+        }
+      },
+      err => {
+        console.log(err)
       })
 
   }
