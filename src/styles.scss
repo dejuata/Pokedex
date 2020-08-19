@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Josefin Sans";
+  src: url(assets/fonts/JosefinSans-VariableFont_wght.ttf) format("opentype");
+}
+
+h1 {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 3em;
+  margin: 0;
+}
+
+.container {
+  width: 70%;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+	.container{
+		width: 80%;
+		flex-flow: column;
+	}
+}
+@media screen and (max-width: 600px){
+	h1{
+		font-size: 2em;
+	}
+}

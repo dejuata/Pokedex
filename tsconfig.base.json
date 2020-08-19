@@ -15,6 +15,11 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@pokemon/*":["src/app/modules/pokemon/*"],
+      "@shared/*":["src/app/modules/shared/*"],
+      "@environments/*":["src/environments/*"]
+    }
   }
 }
