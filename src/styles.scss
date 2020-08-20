@@ -6,6 +6,10 @@
   src: url(assets/fonts/JosefinSans-VariableFont_wght.ttf) format("opentype");
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 h1 {
   font-family: "Josefin Sans", sans-serif;
   font-size: 3em;

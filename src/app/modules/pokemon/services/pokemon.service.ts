@@ -18,8 +18,9 @@ export class PokemonService {
     private http: HttpClient
   ) { }
 
-  getListPokemon(): Observable<PokemonListDescriptor> {
-    return this.http.get<PokemonListDescriptor>(`${environment.baseUrlAPI}`)
+  getListPokemon(endpoint: string): Observable<PokemonListDescriptor> {
+    endpoint = endpoint == '' ? `${environment.baseUrlAPI}` : endpoint;
+    return this.http.get<PokemonListDescriptor>(endpoint)
       .pipe(
         map(data => {
           return PokemonListDescriptor.import(data)

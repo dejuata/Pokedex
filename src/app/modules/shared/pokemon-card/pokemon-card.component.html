@@ -43,7 +43,7 @@
 
   <div>
     <ng-template ngFor let-type [ngForOf]="pokemon?.types">
-      <p class="card-type" [class]="type">{{type | titlecase}}</p>
+      <p class="card-type" [ngClass]="type">{{type | titlecase}}</p>
     </ng-template>
   </div>
 </div>

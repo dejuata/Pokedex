@@ -14,9 +14,10 @@ p {
   background-color: #f2f2f2;
   box-shadow: 0 0 20px -10px #000;
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
   text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
 
 
   &-container {
@@ -30,7 +31,7 @@ p {
   &-image {
     text-align: center;
     img {
-      max-width: 50%;
+      max-width: 60%;
     }
   }
 
@@ -62,6 +63,7 @@ p {
 @media screen and (min-width: 1024px) {
   .card {
     max-width: 250px;
+    width: 250px;
     height: 430px;
     margin: 0 1rem 3rem 1rem;
   }
@@ -93,4 +95,48 @@ p {
 
 .normal {
   background-color: Gainsboro;
+}
+
+.electric {
+  background-color: Gold;
+}
+
+.ground {
+  background-color: Tan;
+}
+
+.fairy {
+  background-color: rgb(255, 136, 238);
+}
+
+.fighting {
+  background-color: Firebrick;
+}
+
+.psychic {
+  background-color: Plum;
+}
+
+.rock {
+  background-color: Peru;
+}
+
+.steel {
+  background-color: Silver;
+}
+
+.ice {
+  background-color: PaleTurquoise;
+}
+
+.ghost {
+  background-color: Indigo;
+}
+
+.dragon {
+  background-color: MediumSlateBlue;
+}
+
+.dark {
+  background-color: SlateGray;
 }

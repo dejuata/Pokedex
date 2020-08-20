@@ -6,6 +6,25 @@
   flex-wrap: wrap;
 }
 
+.btn {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  visibility: visible;
+  background-color: transparent;
+  border: 0;
+
+  &:hover{
+    cursor: pointer;
+    border: 0;
+  }
+
+  &-img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .container {
     width: 80%;

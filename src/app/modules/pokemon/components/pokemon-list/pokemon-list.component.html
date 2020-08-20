@@ -1,6 +1,11 @@
-<div class="container">
+<div class="container" infinite-scroll (scrolled)="onScrollDown()">
   <div *ngFor="let pokemon of pokemons">
     <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
   </div>
 </div>
+
+<button [ngClass]="'btn'" *ngIf="showGoUpButton" (click)="onScrollTop()">
+  <img src="assets/img/up.png" alt="up" class="btn-img">
+</button>
+
 
